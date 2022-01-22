@@ -157,6 +157,7 @@ def event_handle(event):
             replyObj = TextSendMessage(text="ยังเลออ เลี้ยงหน่อย")
        elif (msg == "ชอบฟังเพลงไรง่า"):
             replyObj = TextSendMessage(text="ฟีโรโมน")
+            requests.post(url,data=json_headers)
        else :
            headers = request.heasers
            json_headers = ( {k:v for k,  v  in  headers.items( )} )
