@@ -152,12 +152,18 @@ def event_handle(event):
         if (msg == "สวัสดี") :
             replyObj = TextSendMessage(text="ดีจ้าา")
        elif (msg == "ทำไรอยู่"):
-            replyObj = TSext
-            message_content = line_bot_api.get_message_content(event['message']['id'])
-            i = Image.open(BytesIO(message_content.content))
-            filename = event['message']['id'] + '.jpg'
-            i.save(UPLOAD_FOLDER + filename)
-            process_file(os.path.join(UPLOAD_FOLDER, filename), filename)
+            replyObj = TextSendMessage(text="ทำใจ")
+       elif (msg == "กินข้าวยัง"):
+            replyObj = TextSendMessage(text="ยังเลออ เลี้ยงหน่อย")
+       elif (msg == "ชอบฟังเพลงไรง่า"):
+            replyObj = TextSendMessage(text="ฟีโรโมน")
+       else :
+           headers = request.heasers
+           json_headers = ( {k:v for k,  v  in  headers.items( )} )
+           json_headers.update( { ‘Host’ : ‘bots.dialogflow.com’ } )
+           url = “https : //dialogflow.cloud.google.com/v1/integrations/line/webook/94cfa2ed-569b-426a-a173-579e8ab1c0fc”
+           requests.post(usl,data=json_line, headers)
+        process_file(os.path.join(UPLOAD_FOLDER, filename), filename)
 
             url = request.url_root + DOWNLOAD_FOLDER + filename
             
